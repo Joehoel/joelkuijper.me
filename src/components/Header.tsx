@@ -1,102 +1,48 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
-import {
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
-  HStack,
-  IconButton,
-  Stack,
-  Text,
-  Box,
-  useDisclosure,
-  useMediaQuery,
-  Flex,
-  Slide,
-} from "@chakra-ui/react";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { routes } from "constants/routes";
 import Link from "next/link";
-import React, { useRef } from "react";
+import useBreakpoint from "hooks/useBreakpoint";
 
 const Header = () => {
-  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
-
-  const NavbarDrawer = () => (
-    <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
-      <DrawerOverlay />
-      <DrawerContent backgroundColor="secondary">
-        <DrawerCloseButton />
-        <DrawerHeader borderBottomWidth="1px">
-          <Text mr="auto" as="h3" fontWeight="bold">
-            JK
-          </Text>
-        </DrawerHeader>
-        <DrawerBody>
-          <Stack spacing="24px">
-            <Link href="/" passHref>
-              <Button as="a" variant="ghost" fontSize="16px">
-                Home
-              </Button>
-            </Link>
-            <Link href="/projects" passHref>
-              <Button as="a" variant="ghost" fontSize="16px">
-                Projects
-              </Button>
-            </Link>
-            <Link href="/blog" passHref>
-              <Button as="a" variant="ghost" fontSize="16px">
-                Blog
-              </Button>
-            </Link>
-          </Stack>
-        </DrawerBody>
-      </DrawerContent>
-    </Drawer>
-  );
-
   return (
-    <HStack py="2" fontSize={["2xl", "4xl"]}>
-      <Flex w="100%" as="nav" justifyContent="space-between" alignItems="center" flexDir="row">
-        <Link href="/" passHref>
-          <Text as="a" fontWeight="bold">
-            JK
-          </Text>
-        </Link>
-        {isLargerThan768 ? (
-          <Flex justifyContent="center" alignItems="center">
+    <Disclosure
+      as="header"
+      className="relative flex flex-row flex-wrap items-center justify-between px-6 py-4 antialiased bg-white"
+    >
+      {({ open }) => (
+        <>
+          <h1 className="text-2xl">
             <Link href="/" passHref>
-              <Button as="a" variant="ghost" fontSize={["16px", "18px"]} p={4} ml="3vw">
-                Home
-              </Button>
+              <a>
+                <span className="font-bold text-orange">Joël</span> Kuijper
+              </a>
             </Link>
-            <Link href="/projects" passHref>
-              <Button as="a" variant="ghost" fontSize={["16px", "18px"]} p={4} ml="3vw">
-                Projects
-              </Button>
-            </Link>
-            <Link href="/blog" passHref>
-              <Button as="a" variant="ghost" fontSize={["16px", "18px"]} p={4} ml="3vw">
-                Blog
-              </Button>
-            </Link>
-          </Flex>
-        ) : (
-          <IconButton
-            aria-label="hamburger"
-            size="lg"
-            icon={<HamburgerIcon />}
-            ref={btnRef}
-            colorScheme="orange"
-            onClick={onOpen}
-          />
-        )}
-      </Flex>
-      <NavbarDrawer />
-    </HStack>
+          </h1>
+
+          <Disclosure.Panel
+            static={useBreakpoint("md")}
+            className="sm:transition-transform duration-200 absolute left-0 flex flex-col w-full p-6 pt-0 space-y-3 bg-white rounded-lg shadow-md md:rounded-none md:shadow-none md:bg-transparent md:space-y-0 md:space-x-8 md:relative top-16 md:top-0 md:flex-row md:w-auto md:p-0"
+          >
+            {routes.map((item, index) => (
+              <Link href={item.path} passHref key={index}>
+                <a className="text-lg font-semibold transition duration-75 border-b-2 border-transparent hover:border-orange max-w-max">
+                  {item.name}
+                </a>
+              </Link>
+            ))}
+          </Disclosure.Panel>
+
+          <Disclosure.Button className="inline-flex items-center justify-center rounded-md md:hidden">
+            {open ? (
+              <XIcon className="block h-6 w-6" aria-hidden="true" />
+            ) : (
+              <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+            )}
+          </Disclosure.Button>
+        </>
+      )}
+    </Disclosure>
   );
 };
 export default Header;

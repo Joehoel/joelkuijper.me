@@ -7,10 +7,10 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <Container maxW="container.lg">
+    <div className="mx-auto max-w-7xl">
       <Header />
-      {children}
-    </Container>
+      <main className="px-6">{children}</main>
+    </div>
   );
 };
 
