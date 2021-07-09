@@ -20,7 +20,7 @@ const Post = ({ source, post }: InferGetStaticPropsType<typeof getStaticProps>) 
       <Head>
         <title>{post.title}</title>
       </Head>
-      <h2 className="text-4xl font-bold mb-2">{post.title}</h2>
+      <h2 className="text-4xl font-bold mb-2 text-secondary">{post.title}</h2>
       <small className="text-base">Published on: {post.date}</small>
       <h3 className="text-lg my-4">{post.description}</h3>
       <hr />

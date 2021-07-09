@@ -1,4 +1,5 @@
 const { colors } = require("tailwindcss/defaultTheme");
+const { orange } = require("tailwindcss/colors");
 
 module.exports = {
   purge: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}"],
@@ -7,9 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        orange: "#FF8900",
+        primary: "#FF8900",
+        secondary: "#2274A5",
         black: "#1B1B1E",
         white: "#FDFFFF",
+        orange,
+      },
+      fontFamily: {
+        body: ["PT Sans"],
       },
     },
   },

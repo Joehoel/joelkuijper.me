@@ -12,17 +12,17 @@ const Header = () => {
     >
       {({ open }) => (
         <>
-          <h1 className="text-2xl font-medium">
+          <h1 className="text-2xl font-medium ">
             <Link href="/" passHref>
               <a>
-                <span className="font-bold text-orange">Joël</span> Kuijper
+                <span className="font-bold text-primary">Joël</span> Kuijper
               </a>
             </Link>
           </h1>
           <nav className="hidden md:flex md:rounded-none md:shadow-none md:bg-transparent md:space-y-0 md:space-x-8 md:relative md:top-0 md:flex-row md:w-auto md:p-0">
             {routes.map((item, index) => (
               <Link href={item.path} passHref key={index}>
-                <a className="text-lg font-semibold transition duration-75 border-b-2 border-transparent hover:border-orange max-w-max">
+                <a className="text-lg font-semibold transition duration-75 border-b-2 border-transparent hover:border-primary max-w-max">
                   {item.name}
                 </a>
               </Link>
@@ -32,7 +32,7 @@ const Header = () => {
           <Disclosure.Panel className="absolute left-0 flex flex-col w-full top-16 p-6 pt-0 space-y-3 bg-white rounded-lg shadow-md md:hidden">
             {routes.map((item, index) => (
               <Link href={item.path} passHref key={index}>
-                <a className="text-lg font-semibold transition duration-75 border-b-2 border-transparent hover:border-orange max-w-max">
+                <a className="text-lg font-semibold transition duration-75 border-b-2 border-transparent hover:border-primary max-w-max">
                   {item.name}
                 </a>
               </Link>
