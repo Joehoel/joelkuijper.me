@@ -7,9 +7,9 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl pb-safe selection:bg-yellow-100">
       <Header />
-      <main className="px-6">{children}</main>
+      <main className="px-6 py-4">{children}</main>
     </div>
   );
 };

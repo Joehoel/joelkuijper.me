@@ -17,7 +17,10 @@
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/typography": "^0.4.1",
     "framer-motion": "^4.0.3",
+    "gray-matter": "^4.0.3",
     "next": "latest",
+    "next-mdx-remote": "^3.0.2",
+    "next-remote-watch": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-responsive": "^8.2.0"
