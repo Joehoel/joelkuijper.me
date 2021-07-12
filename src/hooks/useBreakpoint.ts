@@ -5,6 +5,7 @@ import tailwindConfig from "../../tailwind.config";
 const Tailwind = resolveConfig(tailwindConfig as any);
 
 export default function useBreakpoint(breakpoint: "xs" | "sm" | "xl" | "md" | "lg" | "2xl") {
+  // Run that shit
   return useMediaQuery({
     query: `(min-width: ${Tailwind.theme.screens[breakpoint]})`,
   });
