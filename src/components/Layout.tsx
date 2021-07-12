@@ -12,9 +12,9 @@ const Layout = ({ children }: Props) => {
       <Head>
         <link rel="icon" href="https://fav.farm/🏠" />
       </Head>
-      <div className="mx-auto max-w-7xl pb-safe selection:bg-yellow-100">
+      <div className="pb-safe selection:bg-yellow-100 font-body bg-white dark:bg-dark text-dark dark:text-white">
         <Header />
-        <main className="px-6 py-4">{children}</main>
+        <main className="">{children}</main>
       </div>
     </>
   );

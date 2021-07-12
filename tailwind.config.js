@@ -1,5 +1,5 @@
 const { colors } = require("tailwindcss/defaultTheme");
-const { orange } = require("tailwindcss/colors");
+const { orange, trueGray } = require("tailwindcss/colors");
 
 module.exports = {
   purge: ["./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}"],
@@ -8,15 +8,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#FF8900",
-        secondary: "#2274A5",
-        black: "#1B1B1E",
-        white: "#FDFFFF",
+        primary: "#E36920",
+        secondary: "#E67734",
+        light: "#E8D4C0",
+        dark: "#21252B",
         orange,
+        gray: trueGray,
       },
-      fontFamily: {
-        body: ["PT Sans"],
-      },
+      backgroundImage: theme => ({
+        "hero-image": "url('/images/me.png')",
+      }),
+    },
+    fontFamily: {
+      body: ["Poppins"],
     },
   },
   variants: {
@@ -27,7 +31,7 @@ module.exports = {
       const extendUnderline = {
         ".underline": {
           textDecoration: "underline",
-          "text-decoration-color": colors.orange,
+          "text-decoration-color": "#E36920",
         },
       };
       addUtilities(extendUnderline);

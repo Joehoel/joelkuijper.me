@@ -20,7 +20,7 @@ const Post = ({ source, post }: InferGetStaticPropsType<typeof getStaticProps>) 
       <Head>
         <title>{post.title}</title>
       </Head>
-      <h2 className="text-4xl font-bold mb-2 text-secondary">{post.title}</h2>
+      <h2 className="text-4xl font-bold mb-2 text-dark">{post.title}</h2>
       <small className="text-base">Published on: {post.date}</small>
       <h3 className="text-lg my-4">{post.description}</h3>
       <hr />
@@ -53,9 +53,9 @@ export const getStaticPaths = async () => {
   const postFilePaths = fs
     .readdirSync(path.join(process.cwd(), "posts"))
     // Only include md(x) files
-    .filter(path => /\.mdx?$/.test(path));
+    .filter((path) => /\.mdx?$/.test(path));
 
-  const paths = postFilePaths.map(path => path.replace(/\.mdx?$/, "")).map(slug => ({ params: { slug } }));
+  const paths = postFilePaths.map((path) => path.replace(/\.mdx?$/, "")).map((slug) => ({ params: { slug } }));
 
   return {
     paths,
