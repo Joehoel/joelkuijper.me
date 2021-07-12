@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Fragment } from "react";
 
 const Header = () => {
-  // Test comment
   return (
     <Menu as="header" className="py-4 antialiased">
       {({ open }) => (

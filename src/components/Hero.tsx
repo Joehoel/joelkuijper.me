@@ -2,7 +2,7 @@ const Hero = () => {
   return (
     <section className="py-60 w-screen">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="text-4xl font-medium text-primary">Hey there!, I'm-</p>
+        <p className="text-4xl font-medium text-primary">Hey there!, I&apos;m-</p>
         <h2 className="text-8xl tracking-wide mb-8 mt-4 font-extrabold">
           <span>Joël</span> Kuijper.
         </h2>
