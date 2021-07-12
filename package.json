@@ -1,59 +1,59 @@
 {
-    "name": "joelkuijper.me",
-    "version": "1.0.0",
-    "scripts": {
-        "dev": "next",
-        "build": "next build",
-        "start": "next start"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,jsx}": [
-            "eslint '*/**/*.{js,jsx}' --fix"
-        ]
-    },
-    "dependencies": {
-        "@headlessui/react": "^1.3.0",
-        "@heroicons/react": "^1.0.2",
-        "@tailwindcss/forms": "^0.3.3",
-        "@tailwindcss/typography": "^0.4.1",
-        "framer-motion": "^4.0.3",
-        "gray-matter": "^4.0.3",
-        "next": "latest",
-        "next-mdx-remote": "^3.0.2",
-        "next-remote-watch": "^1.0.0",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-responsive": "^8.2.0"
-    },
-    "devDependencies": {
-        "@types/node": "^14.6.0",
-        "@types/react": "^17.0.3",
-        "@types/react-dom": "^17.0.3",
-        "@types/react-responsive": "^8.0.3",
-        "@types/tailwindcss": "^2.2.1",
-        "autoprefixer": "^10.2.6",
-        "eslint": "^7.30.0",
-        "eslint-config-airbnb": "^18.2.1",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-react": "^7.24.0",
-        "eslint-plugin-react-hooks": "^4.2.0",
-        "eslint-plugin-security": "^1.4.0",
-        "eslint-plugin-simple-import-sort": "^7.0.0",
-        "eslint-plugin-sonarjs": "^0.9.1",
-        "eslint-plugin-unicorn": "^34.0.1",
-        "husky": "^7.0.1",
-        "lint-staged": "^11.0.0",
-        "postcss": "^8.3.5",
-        "prettier": "^2.3.2",
-        "tailwindcss": "^2.2.4",
-        "typescript": "4.3.2"
-    },
-    "license": "MIT"
+  "name": "joelkuijper.me",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint '*/**/*.{js,jsx}' --fix"
+    ]
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.3.0",
+    "@heroicons/react": "^1.0.2",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/typography": "^0.4.1",
+    "framer-motion": "^4.0.3",
+    "gray-matter": "^4.0.3",
+    "next": "latest",
+    "next-mdx-remote": "^3.0.2",
+    "next-remote-watch": "^1.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-responsive": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-responsive": "^8.0.3",
+    "@types/tailwindcss": "^2.2.1",
+    "autoprefixer": "^10.2.6",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sonarjs": "^0.9.1",
+    "eslint-plugin-unicorn": "^34.0.1",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.0",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.4",
+    "typescript": "4.3.2"
+  },
+  "license": "MIT"
 }
