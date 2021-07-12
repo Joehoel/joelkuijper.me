@@ -7,10 +7,7 @@ import Head from "next/head";
 import path from "path";
 import React from "react";
 
-interface Props {}
-
 const components = {
-  // TestComponent: dynamic(() => import("../../")),
   Head,
 };
 
