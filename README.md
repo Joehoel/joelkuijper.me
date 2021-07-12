@@ -1,39 +1,88 @@
-# Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and Typescript
+<div align="center" id="top">
+  <img src="./.github/app.gif" alt="Joelkuijper Me" />
 
-This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with typescript.
+&#xa0;
 
-Next.js and chakra-ui have built-in TypeScript declarations, so we'll get autocompletion for their modules straight away.
+  <!-- <a href="https://joelkuijperme.netlify.app">Demo</a> -->
+</div>
 
-We are connecting the Next.js `_app.js` with `chakra-ui`'s Provider and theme so the pages can have app-wide dark/light mode. We are also creating some components which shows the usage of `chakra-ui`'s style props.
+<h1 align="center">Personal Website</h1>
 
-## Preview
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Joehoel/joelkuijper-me?color=56BEB8">
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Joehoel/joelkuijper-me?color=56BEB8">
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript)
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Joehoel/joelkuijper-me?color=56BEB8">
 
-## Deploy your own
+  <img alt="License" src="https://img.shields.io/github/license/Joehoel/joelkuijper-me?color=56BEB8">
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Joehoel/joelkuijper-me?color=56BEB8" /> -->
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript&project-name=with-chakra-ui-typescript&repository-name=with-chakra-ui-typescript)
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Joehoel/joelkuijper-me?color=56BEB8" /> -->
 
-## How to use
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/Joehoel/joelkuijper-me?color=56BEB8" /> -->
+</p>
 
-### Using `create-next-app`
+<!-- Status -->
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+<!-- <h4 align="center">
+	🚧  Joelkuijper Me 🚀 Under construction...  🚧
+</h4>
+
+<hr> -->
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Joehoel" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About
+
+Describe your project
+
+## :rocket: Technologies
+
+The following tools were used in this project:
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## :white_check_mark: Requirements
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting
 
 ```bash
-npx create-next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
-# or
-yarn create next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
+# Clone this project
+$ git clone https://github.com/Joehoel/joelkuijper-me
+
+# Access
+$ cd joelkuijper-me
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn dev
+
+# The server will initialize in the <http://localhost:3000>
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## :memo: License
 
-## Notes
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-Chakra has supported Gradients and RTL in `v1.1`. To utilize RTL, [add RTL direction and swap](https://chakra-ui.com/docs/features/rtl-support).
+Made with :heart: by <a href="https://github.com/Joehoel" target="_blank">Joël Kuijper</a>
 
-If you don't have multi-direction app, you should make `<Html lang="ar" dir="rtl">` inside `_document.ts`.
+&#xa0;
+
+<a href="#top">Back to top</a>
