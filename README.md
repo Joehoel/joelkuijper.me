@@ -37,7 +37,7 @@
 
 ## :dart: About
 
-Describe your project
+This is my personal website to show off my skills and a place where I can write blog posts about stuff I'm making and learning.
 
 ## :rocket: Technologies
 
