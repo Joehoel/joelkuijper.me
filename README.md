@@ -1,11 +1,3 @@
-<div align="center" id="top">
-  <img src="./.github/app.gif" alt="Joelkuijper Me" />
-
-&#xa0;
-
-  <!-- <a href="https://joelkuijperme.netlify.app">Demo</a> -->
-</div>
-
 <h1 align="center">Personal Website</h1>
 
 <p align="center">
