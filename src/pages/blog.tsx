@@ -6,6 +6,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  // Hello World
   return (
     <>
       <Head>
