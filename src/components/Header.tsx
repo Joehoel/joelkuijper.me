@@ -6,7 +6,7 @@ import { Fragment } from "react";
 
 const Header = () => {
   return (
-    <Menu as="header" className="py-4 antialiased">
+    <Menu as="header" className="py-6 antialiased border-b-2 dark:border-gray-900 border-gray-200">
       {({ open }) => (
         <div className="px-6 mx-auto max-w-7xl relative z-20 flex flex-row flex-wrap items-center justify-between ">
           <h1 className="text-2xl font-medium">
@@ -35,7 +35,7 @@ const Header = () => {
           >
             <Menu.Items
               as="nav"
-              className="absolute left-0 z-10 flex flex-col w-full p-6 space-y-3 md:hidden items-center sm:items-start origin-top-right rounded-b-lg shadow-md top-12"
+              className="dark:bg-dark bg-white absolute left-0 z-10 flex flex-col w-full p-6 space-y-3 md:hidden items-center sm:items-start origin-top-right rounded-b-lg shadow-md top-16"
             >
               {routes.map((item, index) => (
                 <Link href={item.path} passHref key={index}>
@@ -54,7 +54,7 @@ const Header = () => {
               ))}
             </Menu.Items>
           </Transition>
-          <nav className="hidden md:flex md:rounded-none md:shadow-none md:bg-transparent md:space-y-0 md:space-x-8 md:relative md:top-0 md:flex-row md:w-auto md:p-0">
+          <nav className="hidden md:flex md:rounded-none md:shadow-none md:bg-transparent md:space-y-0 md:space-x-12 md:relative md:top-0 md:flex-row md:w-auto md:p-0">
             {routes.map((item, index) => (
               <Link href={item.path} passHref key={index}>
                 <a className="text-lg font-normal transition duration-75 border-b-2 border-transparent hover:border-primary focus:border-primary active:border-primary max-w-max">

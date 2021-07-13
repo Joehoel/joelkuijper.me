@@ -6,6 +6,7 @@ const Home = () => (
     <Head>
       <title>Home - Joël Kuijper</title>
       <link rel="icon" href="https://fav.farm/🏠" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
     <Hero />
   </div>

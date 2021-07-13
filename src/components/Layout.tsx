@@ -10,10 +10,11 @@ const Layout = ({ children }: Props) => {
     <>
       <Head>
         <link rel="icon" href="https://fav.farm/🏠" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <div className="pb-safe selection:bg-yellow-100 font-body bg-white dark:bg-dark text-dark dark:text-white">
+      <div className="font-body bg-white dark:bg-dark text-dark dark:text-white">
         <Header />
-        <main className="">{children}</main>
+        <main>{children}</main>
       </div>
     </>
   );

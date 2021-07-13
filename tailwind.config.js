@@ -1,4 +1,3 @@
-const { colors } = require("tailwindcss/defaultTheme");
 const { orange, trueGray } = require("tailwindcss/colors");
 
 module.exports = {
@@ -11,11 +10,11 @@ module.exports = {
         primary: "#E36920",
         secondary: "#E67734",
         light: "#E8D4C0",
-        dark: "#21252B",
+        dark: "#000000",
         orange,
         gray: trueGray,
       },
-      backgroundImage: theme => ({
+      backgroundImage: (theme) => ({
         "hero-image": "url('/images/me.png')",
       }),
     },

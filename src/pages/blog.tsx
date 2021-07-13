@@ -12,6 +12,7 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Head>
         <title>Blog - Joël Kuijper</title>
         <link rel="icon" href="https://fav.farm/📃" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <section className="grid md:grid-cols-3 md:grid-rows-1 sm:grid-cols-1 sm:grid-rows-2 gap-4">
