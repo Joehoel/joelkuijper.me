@@ -1,63 +1,48 @@
-import fs from "fs";
-import matter from "gray-matter";
-import { InferGetStaticPropsType } from "next";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
-import path from "path";
+import BlogLayout from "layouts/blog";
+import { getFileBySlug, getFiles } from "lib/mdx";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import React from "react";
+import { IReadTimeResults } from "types";
 
-const components = {
-  Head,
-};
+const components = {};
 
-const Post = ({ source, post }: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface Props {
+  source: MDXRemoteSerializeResult;
+  frontmatter: {
+    wordCount: number;
+    readingTime: IReadTimeResults;
+    slug: string;
+  };
+}
+
+export default function Blog({ frontmatter, source }: Props) {
   return (
-    <>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
-      <h2 className="text-4xl font-bold mb-2 text-dark">{post.title}</h2>
-      <small className="text-base">Published on: {post.date}</small>
-      <h3 className="text-lg my-4">{post.description}</h3>
-      <hr />
-      <article className="prose prose-yellow mt-4">
-        <MDXRemote {...source} components={components}></MDXRemote>
-      </article>
-    </>
+    <BlogLayout frontmatter={frontmatter}>
+      <MDXRemote {...source} components={components} />
+    </BlogLayout>
   );
-};
+}
 
-export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(process.cwd(), "posts", `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
-
-  const { content, data } = matter(source);
-
-  const mdxSource = await serialize(content, {
-    scope: data,
-  });
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = await getFileBySlug("posts", params.slug as string);
 
   return {
     props: {
-      source: mdxSource,
-      post: data,
+      ...post,
     },
   };
 };
 
-export const getStaticPaths = async () => {
-  const postFilePaths = fs
-    .readdirSync(path.join(process.cwd(), "posts"))
-    // Only include md(x) files
-    .filter((path) => /\.mdx?$/.test(path));
-
-  const paths = postFilePaths.map((path) => path.replace(/\.mdx?$/, "")).map((slug) => ({ params: { slug } }));
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getFiles("posts");
 
   return {
-    paths,
+    paths: posts.map((p) => ({
+      params: {
+        slug: p.replace(/\.mdx/, ""),
+      },
+    })),
     fallback: false,
   };
 };
-
-export default Post;

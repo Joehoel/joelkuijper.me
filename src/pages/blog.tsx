@@ -1,21 +1,14 @@
 import { ChevronRightIcon } from "@heroicons/react/solid";
+import Container from "components/Container";
 import Post from "components/Post";
 import { getLatestPosts } from "lib/posts";
 import { InferGetStaticPropsType } from "next";
-import Head from "next/head";
 import Link from "next/link";
 
-const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // Hello World
+export default function Blog({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
-      <Head>
-        <title>Blog - Joël Kuijper</title>
-        <link rel="icon" href="https://fav.farm/📃" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-
-      <section className="grid md:grid-cols-3 md:grid-rows-1 sm:grid-cols-1 sm:grid-rows-2 gap-4">
+    <Container title="Blog - Joël Kuijper" description="Tips and Tricks, Tutorials, Programming, Tech">
+      <section className="grid md:grid-cols-3 md:grid-rows-1 sm:grid-cols-1 sm:grid-rows-2 gap-4 mx-auto max-w-7xl">
         <div className="col-span-2">
           <h2 className="text-2xl text-dark uppercase font-semibold tracking-wide mb-4 font-body">Latest</h2>
           <ul className="space-y-4">
@@ -31,7 +24,7 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
               <li className="flex items-center" key={post.filePath}>
                 <ChevronRightIcon className="w-6 h-6 text-primary" />
 
-                <Link as={`/blog/${post.filePath.replace(/\.mdx?$/, "")}`} href={`/blog/[slug]`} passHref>
+                <Link href={`/blog/${post.filePath.replace(".mdx", "")}`} passHref>
                   <a className="border-b-2 border-transparent hover:border-primary">{post.data.title}</a>
                 </Link>
               </li>
@@ -39,13 +32,11 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           </ul>
         </aside>
       </section>
-    </>
+    </Container>
   );
-};
+}
 
 export const getStaticProps = () => {
   const posts = getLatestPosts(10);
   return { props: { posts } };
 };
-
-export default blog;

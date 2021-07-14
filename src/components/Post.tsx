@@ -16,14 +16,14 @@ interface Props {
 const Post = ({ post }: Props) => {
   return (
     <article className="w-auto group">
-      <Link as={`/blog/${post.filePath.replace(/\.mdx?$/, "")}`} href={`/blog/[slug]`} passHref>
+      <Link href={`/blog/${post.filePath.replace(".mdx", "")}`} passHref>
         <a>
           <h4 className="text-xl font-medium mb-2 group-hover:text-primary transition duration-[100ms]">
             {post.data.title}
           </h4>
-          <small className="text-sm font-normal tracking-wide">{post.data.date}</small>
+          <small className="text-sm font-normal tracking-wide">{post.data.publishedAt}</small>
           <p className="mb-4 text-gray-600">{post.data.description}</p>
-          <a className="text-dark transition duration-[100ms] hover:underline">Read more...</a>
+          {/* <a className="text-dark transition duration-[100ms] hover:underline">Read more...</a> */}
         </a>
       </Link>
     </article>
