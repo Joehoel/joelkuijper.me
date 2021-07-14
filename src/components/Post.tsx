@@ -1,32 +1,23 @@
-import React from "react";
 import Link from "next/link";
-
-interface Post {
-  content: string;
-  data: {
-    [key: string]: any;
-  };
-  filePath: string;
-}
+import React from "react";
 
 interface Props {
-  post: Post;
+  title?: string;
+  description?: string;
+  slug?: string;
+  [key: string]: any;
 }
 
-const Post = ({ post }: Props) => {
+const Post = ({ title, description, slug }: Props) => {
   return (
-    <article className="w-auto group">
-      <Link as={`/blog/${post.filePath.replace(/\.mdx?$/, "")}`} href={`/blog/[slug]`} passHref>
-        <a>
-          <h4 className="text-xl font-medium mb-2 group-hover:text-primary transition duration-[100ms]">
-            {post.data.title}
-          </h4>
-          <small className="text-sm font-normal tracking-wide">{post.data.date}</small>
-          <p className="mb-4 text-gray-600">{post.data.description}</p>
-          <a className="text-dark transition duration-[100ms] hover:underline">Read more...</a>
-        </a>
-      </Link>
-    </article>
+    <Link href={`/blog/${slug}`}>
+      <a className="w-full">
+        <div className="mb-8 w-full">
+          <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">{title}</h4>
+          <p className="text-gray-600 dark:text-gray-400">{description}</p>
+        </div>
+      </a>
+    </Link>
   );
 };
 

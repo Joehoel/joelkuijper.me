@@ -1,17 +1,11 @@
-import Head from "next/head";
-const projects = () => {
+import Container from "components/Container";
+
+export default function Projects() {
   return (
-    <div>
-      <Head>
-        <title>Projects - Joël Kuijper</title>
-        <link rel="icon" href="https://fav.farm/📋" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
+    <Container title="Projects - Joël Kuijper" description="Current and previously done projects">
       <section>
         <h1>Projects</h1>
       </section>
-    </div>
+    </Container>
   );
-};
-
-export default projects;
+}

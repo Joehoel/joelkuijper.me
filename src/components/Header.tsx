@@ -57,7 +57,7 @@ const Header = () => {
           <nav className="hidden md:flex md:rounded-none md:shadow-none md:bg-transparent md:space-y-0 md:space-x-12 md:relative md:top-0 md:flex-row md:w-auto md:p-0">
             {routes.map((item, index) => (
               <Link href={item.path} passHref key={index}>
-                <a className="text-lg font-normal transition duration-75 border-b-2 border-transparent hover:border-primary focus:border-primary active:border-primary max-w-max">
+                <a className="text-lg font-normal border-b-2 border-transparent hover:border-primary focus:border-primary active:border-primary max-w-max">
                   {item.name}
                 </a>
               </Link>
