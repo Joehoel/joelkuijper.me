@@ -28,13 +28,17 @@ export default function BlogLayout({ children, frontmatter }: Props) {
       date={new Date(frontmatter.publishedAt).toISOString()}
       type="article"
     >
-      <article className="mx-auto max-w-7xl my-6">
-        <h1 className="text-3xl md:text-5xl tracking-tight mb-4 dark:text-white font-bold text-dark">
+      <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           {frontmatter.title}
         </h1>
-        <small className="text-base">{format(parseISO(frontmatter.publishedAt), "MMMM dd, yyyy")}</small>
-        <h3 className="text-lg my-4">{frontmatter.description}</h3>
-        <div className="prose dark:prose-dark mt-4 w-full max-w-prose">{children}</div>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            {format(parseISO(frontmatter.publishedAt), "MMMM dd, yyyy")}
+          </p>
+          <p className="text-sm text-gray-700 dark:text-gray-300">{frontmatter.readingTime.text}</p>
+        </div>
+        <div className="prose prose-orange dark:prose-dark mt-4 w-full max-w-prose">{children}</div>
         <a href={editUrl(frontmatter.slug)} target="_blank" rel="noopener noreferrer">
           {"Edit on GitHub"}
         </a>

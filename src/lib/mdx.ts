@@ -44,3 +44,29 @@ export async function getFileBySlug(type: string, slug?: string) {
     },
   };
 }
+
+export async function getAllFilesFrontMatter(type: string) {
+  const files = readdirSync(join(root, type));
+
+  return files.map((file) => {
+    const source = readFileSync(join(root, type, file), "utf8");
+    const { data } = matter(source);
+
+    return {
+      ...data,
+      slug: file.replace(".mdx", ""),
+    };
+  });
+  //   return files.reduce((allPosts, postSlug) => {
+  //     const source = readFileSync(join(root, type, postSlug), "utf8");
+  //     const { data } = matter(source);
+
+  //     return [
+  //       {
+  //         frontmatter: data,
+  //         slug: postSlug.replace(".mdx", ""),
+  //       },
+  //       ...allPosts,
+  //     ];
+  //   }, []);
+}

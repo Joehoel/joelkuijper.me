@@ -5,7 +5,7 @@ export default class Document extends NextDocument {
     return (
       <Html>
         <Head />
-        <body>
+        <body className="bg-white dark:text-white dark:bg-black">
           <Main />
           <NextScript />
         </body>

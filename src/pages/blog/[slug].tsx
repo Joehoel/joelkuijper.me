@@ -1,11 +1,10 @@
+import MDXComponents from "components/MDXComponents";
 import BlogLayout from "layouts/blog";
 import { getFileBySlug, getFiles } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import React from "react";
 import { IReadTimeResults } from "types";
-
-const components = {};
 
 interface Props {
   source: MDXRemoteSerializeResult;
@@ -19,7 +18,7 @@ interface Props {
 export default function Blog({ frontmatter, source }: Props) {
   return (
     <BlogLayout frontmatter={frontmatter}>
-      <MDXRemote {...source} components={components} />
+      <MDXRemote {...source} components={MDXComponents} />
     </BlogLayout>
   );
 }

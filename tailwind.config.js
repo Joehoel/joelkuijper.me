@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Poppins", ...fontFamily.sans],
+        body: ["Inter", "Poppins", ...fontFamily.sans],
       },
       colors: {
         primary: "#E36920",
@@ -48,11 +48,11 @@ module.exports = {
           css: {
             color: theme("colors.gray.300"),
             a: {
-              color: theme("colors.blue.400"),
+              color: theme("colors.orange.400"),
               "&:hover": {
-                color: theme("colors.blue.600"),
+                color: theme("colors.orange.600"),
               },
-              code: { color: theme("colors.blue.400") },
+              code: { color: theme("colors.orange.400") },
             },
             blockquote: {
               borderLeftColor: theme("colors.gray.700"),
@@ -90,5 +90,5 @@ module.exports = {
   variants: {
     typography: ["dark"],
   },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography")],
 };

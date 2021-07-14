@@ -42,7 +42,7 @@ export default function Container(props: Props) {
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.image} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="description_large_image" />
         <meta name="twitter:site" content="@joel_kuijper" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
@@ -50,7 +50,7 @@ export default function Container(props: Props) {
         {meta.date && <meta property="article:published_time" content={meta.date} />}
       </Head>
       <Header />
-      <main className="flex flex-col justify-center px-8 bg-white dark:bg-black">{children}</main>
+      <main className="flex flex-col justify-center px-8 bg-white dark:bg-black mt-16">{children}</main>
     </div>
   );
 }
