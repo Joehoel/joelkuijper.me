@@ -63,7 +63,7 @@ const Header = () => {
                 </a>
               </Link>
             ))}
-            <ThemeToggler />
+            {/* <ThemeToggler /> */}
           </nav>
         </div>
       )}
