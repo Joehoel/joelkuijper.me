@@ -1,11 +1,9 @@
 import Link from "next/link";
 import React from "react";
+import { Frontmatter } from "types";
 
-interface Props {
-  title?: string;
-  description?: string;
+interface Props extends Frontmatter {
   slug?: string;
-  [key: string]: any;
 }
 
 const Post = ({ title, description, slug }: Props) => {

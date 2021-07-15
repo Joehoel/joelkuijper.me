@@ -3,15 +3,14 @@ import Post from "components/Post";
 import { getAllFilesFrontMatter } from "lib/mdx";
 import { InferGetStaticPropsType } from "next";
 import { useState } from "react";
+import { Frontmatter } from "types";
+
+interface Post extends Frontmatter {
+  slug: string;
+}
 
 interface Props {
-  posts: {
-    title: string;
-    description: string;
-    publishedAt: string;
-    tags?: string[];
-    slug: string;
-  }[];
+  posts: Post[];
 }
 
 export default function Blog({ posts }: Props) {
