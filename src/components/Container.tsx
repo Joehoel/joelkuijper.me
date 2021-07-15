@@ -2,6 +2,7 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import Header from "./Header";
+import ThemeToggler from "./ThemeToggler";
 
 interface Meta {
   title: string;
@@ -16,7 +17,7 @@ interface Props extends Partial<Meta> {
 }
 
 export default function Container(props: Props) {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const router = useRouter();
 
   const { children, ...customMeta } = props;

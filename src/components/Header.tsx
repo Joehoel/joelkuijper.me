@@ -3,10 +3,11 @@ import { MenuIcon, XIcon } from "@heroicons/react/solid";
 import { routes } from "constants/routes";
 import Link from "next/link";
 import { Fragment } from "react";
+import ThemeToggler from "./ThemeToggler";
 
 const Header = () => {
   return (
-    <Menu as="header" className="py-6 antialiased border-b-2 dark:border-gray-900 border-gray-200">
+    <Menu as="header" className="py-6 antialiased border-b-2 dark:border-gray-900 border-gray-200 relative">
       {({ open }) => (
         <div className="px-6 mx-auto max-w-7xl relative z-20 flex flex-row flex-wrap items-center justify-between ">
           <h1 className="text-2xl font-medium">
@@ -62,6 +63,7 @@ const Header = () => {
                 </a>
               </Link>
             ))}
+            <ThemeToggler />
           </nav>
         </div>
       )}
