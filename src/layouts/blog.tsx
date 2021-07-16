@@ -2,6 +2,15 @@ import Container from "components/Container";
 import { parseISO, format } from "date-fns";
 import { IReadTimeResults } from "types";
 
+function getBaseURL() {
+  const url = process.env.VERCEL_URL;
+  if (!url || url === "undefined") {
+    // seriously
+    return `http://localhost:3000`;
+  }
+  return url;
+}
+
 interface FrontMatter {
   title?: string;
   description?: string;
@@ -20,7 +29,9 @@ interface Props {
 const editUrl = (slug: string) => `https://github.com/joehoel/joelkuijper.me/edit/main/posts/${slug}.mdx`;
 
 export default function BlogLayout({ children, frontmatter }: Props) {
-  const ogimage = `${process.env.URL}/api/ogimage?title=${frontmatter.title}&thumbnail=${frontmatter.image}&link=${process.env.URL}/blog/${frontmatter.slug}`;
+  const ogimage = `${getBaseURL()}/api/ogimage?title=${frontmatter.title}&thumbnail=${
+    frontmatter.image
+  }&link=${getBaseURL()}/blog/${frontmatter.slug}`;
   console.log(ogimage);
   return (
     <Container
