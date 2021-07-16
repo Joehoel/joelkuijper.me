@@ -24,7 +24,7 @@ export default function BlogLayout({ children, frontmatter }: Props) {
     <Container
       title={`${frontmatter.title} - Joël Kuijper`}
       description={frontmatter.description}
-      image={frontmatter.image}
+      image={`https://joelkuijper-me.vercel.app${frontmatter.image}`}
       date={new Date(frontmatter.publishedAt).toISOString()}
       type="article"
     >
