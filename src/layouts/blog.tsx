@@ -8,7 +8,7 @@ function getBaseURL() {
     // seriously
     return `http://localhost:3000`;
   }
-  return url;
+  return "https://" + url;
 }
 
 interface FrontMatter {
