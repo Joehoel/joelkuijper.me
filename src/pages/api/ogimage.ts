@@ -3,6 +3,8 @@ import { NextApiHandler } from "next";
 import puppeteer, { BrowserConnectOptions, BrowserLaunchArgumentOptions, LaunchOptions, Product } from "puppeteer-core";
 import wait from "waait";
 
+// API ROUTES
+
 type Options = LaunchOptions &
   BrowserLaunchArgumentOptions &
   BrowserConnectOptions & {
