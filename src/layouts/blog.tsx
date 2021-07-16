@@ -3,7 +3,7 @@ import { parseISO, format } from "date-fns";
 import { IReadTimeResults } from "types";
 
 function getBaseURL() {
-  const url = process.env.VERCEL_URL;
+  const url = process.env.NEXT_PUBLIC_VERCEL_URL;
   if (!url || url === "undefined") {
     // seriously
     return `http://localhost:3000`;
