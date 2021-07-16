@@ -22,7 +22,7 @@ module.exports = {
         orange,
         gray: trueGray,
       },
-      backgroundImage: (theme) => ({
+      backgroundImage: () => ({
         "hero-image": "url('/images/me.png')",
       }),
       typography: (theme) => ({
