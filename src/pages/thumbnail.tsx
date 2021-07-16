@@ -2,12 +2,12 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 function getFontSize(length: number) {
   if (length > 55) {
-    return `5rem`;
+    return `4rem`;
   }
   if (length > 32) {
-    return `7rem`;
+    return `6rem`;
   }
-  return `10rem`;
+  return `8rem`;
 }
 
 export default function Thumbnail({ query }: InferGetServerSidePropsType<typeof getServerSideProps>) {
