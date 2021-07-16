@@ -1,7 +1,6 @@
 import Container from "components/Container";
 import Post from "components/Post";
 import { getAllFilesFrontMatter } from "lib/mdx";
-import { InferGetStaticPropsType } from "next";
 import { useState } from "react";
 import { Frontmatter } from "types";
 

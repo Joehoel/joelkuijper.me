@@ -20,11 +20,13 @@ interface Props {
 const editUrl = (slug: string) => `https://github.com/joehoel/joelkuijper.me/edit/main/posts/${slug}.mdx`;
 
 export default function BlogLayout({ children, frontmatter }: Props) {
+  const ogimage = `${process.env.URL}/api/ogimage?title=${frontmatter.title}&thumbnail=${frontmatter.image}&link=${process.env.URL}/blog/${frontmatter.slug}`;
+  console.log(ogimage);
   return (
     <Container
       title={`${frontmatter.title} - Joël Kuijper`}
       description={frontmatter.description}
-      image={`https://joelkuijper-me.vercel.app${frontmatter.image}`}
+      image={ogimage}
       date={new Date(frontmatter.publishedAt).toISOString()}
       type="article"
     >
