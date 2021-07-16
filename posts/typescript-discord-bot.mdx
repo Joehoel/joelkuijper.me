@@ -1,0 +1,384 @@
+---
+title: How to make an advanced discord bot with typescript
+publishedAt: "2021-07-16"
+description: Make an advanced discord bot in typescript with a custom command/event handler
+image: "/images/typescript-discord-bot/typescipt.jpeg"
+---
+
+A command handler is a way of separating your commands into different files, instead of having a bunch of `if/else` statements inside your code. If you want to implement features into your bot and make your development process a lot less painful, you'll want to implement a command handler.
+
+You can clone the starter project from github (and skip to the next chapter) or start from fresh:
+
+## Project Setup
+
+We need to start off by creating a discord application. To create a discord application go to the [discord developer portal](https://discord.com/developers/applications). Here click on the button in the top right `New Application`. Then fill in how you want to call your application. After creating the application, navigate to the `Bot` tab on the left and click on `Add Bot`. When the bot is added copy the bot token. We will be using this token in the chapter: [Enviroment Variables](#environment-variables)
+
+### Initialize project
+
+```bash
+mkdir typescript-command-handler
+cd typescript-command-handler
+npm init -y
+```
+
+### Install dependencies
+
+```bash
+npm i discord.js dotenv
+npm i -D typescript @types/node ts-node nodemon
+```
+
+### Setup project
+
+First off we have to create a `tsconfig.json` file. This is to setup up our typescript rules and compiler options.
+
+```json:tsconfig.json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["esnext", "esnext.array"],
+    "target": "ES2015",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "strictFunctionTypes": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "typeRoots": ["./src/types", "node_modules/@types"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+  },
+  "exclude": ["node_modules"]
+}
+```
+
+To make our development process a little bit easier we are going modify our `package.json` and add some scripts.
+
+Add the below code to your `package.json` file.
+
+```json:package.json
+{
+  "scripts": {
+    "dev": "nodemon --files src/index.ts",
+    "build": "rm -rf ./dist && tsc",
+  }
+},
+```
+
+After creating our config files we will create our typescript files. In the root of you projects create a `src/` directory with an `index.ts` file in it.
+
+We will also want to create an `.env` file in the root of our project to ensure we keep our bot token safe. Make sure to also create a `.gitignore` file with the following content.
+
+```gitignore:.gitignore
+node_modules/
+.env
+```
+
+At this point our project should look something like this.
+
+```
+├── .env
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── src
+|  └── index.ts
+└── tsconfig.json
+```
+
+### Environment Variables
+
+To make sure our bot token is not exposed to the public we will put in this `.env` file. We also need to add this file to the `.gitignore` file to make sure we are not pushing this file to the git repository.
+
+```:.env
+TOKEN=YOUR_BOT_TOKEN_HERE
+```
+
+To make the environment variables work nicely with typescript we need to generate the types for the variables in the `.env` file. To do this run the following commands.
+
+```bash
+mkdir src/types
+npx gen-env-types .env -o src/types/env.d.ts -e .
+```
+
+## Creating the bot
+
+To make a minimal working discord bot we need to initialize the discord client.
+
+```ts:src/index.ts
+// Import our enviroment variables
+import "dotenv/config";
+
+// Import the client from 'discord.js'
+import { Client } from "discord.js";
+
+
+// Get the bot token from the '.env' file
+const { TOKEN } = process.env;
+
+// Create the client
+const client = new Client();
+
+// Login the client with our bot token
+client.login(TOKEN);
+```
+
+### Creating the modules
+
+To make it easier to create new commands we are going to make a boilerplate which we can use to create new command easily.
+
+We are going to create a directory called `modules`. In here we'll be putting our command boilerplate and our event boilerplate which we'll be creating later.
+
+```ts:src/modules/Command.ts
+import { Client, Message, PermissionString } from "discord.js";
+
+export default class Command {
+  public name: string;
+  public usage?: string;
+  public args: boolean;
+  public description: string;
+  public permissions: PermissionString[];
+  public aliases: string[];
+  public roles: string[];
+  public execute: (client: Client, message: Message, args: string[]) => void;
+
+  constructor({
+    name,
+    usage,
+    args,
+    description,
+    execute,
+    permissions,
+    aliases,
+    roles,
+  }: {
+    name: string;
+    usage?: string;
+    args?: boolean;
+    description: string;
+    permissions?: PermissionString[];
+    aliases?: string[];
+    roles?: string[];
+    execute: (client: Client, message: Message, args: string[]) => void;
+  }) {
+    this.name = name;
+    this.usage = usage;
+    this.args = args ?? false;
+    this.description = description;
+    this.execute = execute;
+    this.permissions = permissions ?? [];
+    this.aliases = aliases ?? [];
+    this.roles = roles ?? [];
+  }
+}
+```
+
+There are a few things we want to be able to define with every command. For example: each command should have an unique `name` and a `description`. A command should also have a `usage`. This is is a string which will show up when the user executes the command in a wrong way. The `args` property is to tell if the command has required argument a user must give with it or not.
+
+To make sure a normal user cant execute admin command we have a `permissions` property and a `roles` property.
+
+And for a nice bonus feature: command aliases, we have the `aliases` property. This will make it so we can have different names for one command.
+
+To listen for commands in a channel there are different events we can listen for. The average discord bot listens for more than one event so we'll also be making an event boilerplate to make this process easier.
+
+```typescript:src/modules/Event.ts
+import { Client, ClientEvents } from "discord.js";
+
+export default class Event {
+  public name: keyof ClientEvents;
+  run: (client: Client, ...args: any) => Promise<void>;
+
+  constructor({ name, run }: { name: keyof ClientEvents; run: (client: Client, ...args: any) => Promise<void> }) {
+    this.name = name;
+    this.run = run;
+  }
+}
+```
+
+Each event has a `name` that corresponds to the events that are provided by the [discord.js](https://discord.js.org/#/) package. The event handler we are going to create will be calling the `run` function, in here we have acces to the client which will passed through to the commands.
+
+To have easy acces to all of our commands and events we are going to add all the commands and events on to the client object. This will make it that we have acces to them on the `client.commands` or `client.events` objects. To do this add the following lines to `src/index.ts`.
+
+```ts:src/index.ts
+// Update the 'discord.js' import to have 'Collection'
+import { Client, Collection } from "discord.js";
+
+// Command and Event classes
+import Command from "./modules/Command";
+import Event from "./modules/Event";
+
+client.commands = new Collection<string, Command>();
+client.events = new Collection<string, Event>();
+```
+
+At this point you will realize that typescript does not like that we are modifying the `client` object. To correct this we need to create a new type definition file.
+
+In here we are defining the types so that [discord.js](https://discord.js.org/#/) know what `commands` and `events` are.
+
+```ts:src/types/client.d.ts
+import Command from "../modules/Command";
+import Event from "../modules/Event";
+
+declare module "discord.js" {
+  interface Client {
+    commands: Collection<string, Command>;
+    events: Collection<string, Event>;
+  }
+}
+```
+
+Now if we go back to `src/index.ts` typescript understand what our collection are.
+
+### Getting the files
+
+We want it so when we create a new file in our commands directory it will automaticly will be registered. To do this we are gonna use the built in [node.js](https://nodejs.org/en/), `fs` and `path` packages to read from the file system.
+
+Create a new folder called `utils`. In there create a file called `read.ts`.
+
+```ts:src/utils/read.ts
+import { readdirSync, lstatSync } from "fs";
+import { join } from "path";
+
+export default async function read<T>(dir: string): Promise<T[]> {
+  const modules: T[] = [];
+
+  const files = readdirSync(join(__dirname, dir));
+  for (const file of files) {
+    const stat = lstatSync(join(__dirname, dir, file));
+
+    if (stat.isDirectory()) {
+      const nestedModules = await read<T>(join(dir, file));
+
+      modules.push(...nestedModules);
+    } else if (file !== "index.ts" && file !== "index.js" && !file.endsWith(".map")) {
+      try {
+        const module: T = await import(join(__dirname, dir, file)).then((value) => value.default);
+        modules.push(module);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+  return modules;
+}
+```
+
+Now we are getting to the fun stuff. This is by far the most complicated this project is going to get, but if we want a smooth working command handler then we are going to need this.
+
+This function reads all files from the given directory and assigns it the correct type given by the generic `<T>`. This is not a typescript guide so if you dont know what generics are please check out the [typescript documentation](https://www.typescriptlang.org/docs/handbook/2/generics.html).
+
+To explain further how to `read` function works we are going to be making two new function that register all of our commands and events.
+
+Create a new files in the `src/utils` folder called `registry.ts`. In this file we are going to have 2 functions that read all the files from directories where our commmand and events are.
+
+```ts:src/utils/registry.ts
+import { Client } from "discord.js";
+import Command from "../modules/Command";
+import Event from "../modules/Event";
+import read from "./read";
+
+export async function registerCommands(client: Client, dir = "../commands") {
+  const commands = await read<Command>(dir);
+
+  for (const command of commands) {
+    // Register command
+    client.commands.set(command.name, command);
+  }
+}
+
+export async function registerEvents(client: Client, dir = "../events") {
+  const events = await read<Event>(dir);
+
+  for (const event of events) {
+    // Register events
+    client.events.set(event.name, event);
+
+    try {
+      // Add listener on the client for the event
+      client.on(event.name, event.run.bind(event, client));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+```
+
+Now to register all of our command and events when the bot starts we need to add this code to `src/index.ts`.
+
+```ts:src/index.ts
+import { registerCommands, registerEvents } from "./utils/registry";
+
+(async () => {
+  try {
+    // Register commands and events
+    await registerCommands(client, "../commands");
+    await registerEvents(client, "../events");
+
+    await client.login(TOKEN);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+```
+
+After this your `src/index.ts` file should look like this:
+
+```ts:src/index.ts
+// Import our enviroment variables
+import "dotenv/config";
+
+// Import the client from 'discord.js'
+import { Client, Collection } from "discord.js";
+
+// Command and Event classes
+import Command from "./modules/Command";
+import Event from "./modules/Event";
+
+import { registerCommands, registerEvents } from "./utils/registry";
+
+// Get the bot token from the '.env' file
+const { TOKEN } = process.env;
+
+// Create the client
+const client = new Client();
+
+client.commands = new Collection<string, Command>();
+client.events = new Collection<string, Event>();
+
+(async () => {
+  try {
+    // Register commands and events
+    await registerCommands(client, "../commands");
+    await registerEvents(client, "../events");
+
+    // Login the client with our bot token
+    await client.login(TOKEN);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+```
+
+Yay now that we have most of the important code out of the way, we can start testing out the bot.
+
+Now the nice thing with typescript is that you have intellisense everywhere. So when we are creating a new event and you press `Ctrl + Space` when typing in the name, you get a list of all the possible events.
+
+On the `ready` event, log to the console: **Discord bot online!**.
+
+```ts:src/events/ready.ts
+import Event from "../modules/Event";
+
+export default new Event({
+  name: "ready",
+  async run() {
+    console.log("Discord bot online!");
+  },
+});
+```
