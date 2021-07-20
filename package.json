@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky install",
-    "postbuild": "CROSS-ENV next-sitemap --config ./next-sitemap.js"
+    "postbuild": "next-sitemap --config ./next-sitemap.js"
   },
   "husky": {
     "hooks": {
