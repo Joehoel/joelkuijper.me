@@ -20,7 +20,7 @@ export default function Tag({ tag }: Props) {
   const Icon = tags[tag];
 
   return (
-    <span className={`w-min flex items-center font-bold px-2 py-1 rounded text-xs ${classes}`}>
+    <span className={`w-min flex items-center font-bold px-2 py-1 rounded text-xs mr-1 mb-1 ${classes}`}>
       <Icon className="inline mr-1 h-4 w-4" />
       {tag}
     </span>
