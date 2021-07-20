@@ -1,4 +1,4 @@
-const { orange, trueGray } = require("tailwindcss/colors");
+const { orange, trueGray, purple } = require("tailwindcss/colors");
 const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -21,6 +21,7 @@ module.exports = {
         dark: "#000000",
         orange,
         gray: trueGray,
+        purple,
       },
       backgroundImage: () => ({
         "hero-image": "url('/images/me.png')",
@@ -90,5 +91,5 @@ module.exports = {
   variants: {
     typography: ["dark"],
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/aspect-ratio")],
 };

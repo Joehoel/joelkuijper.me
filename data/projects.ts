@@ -1,45 +1,48 @@
+import { NextJS } from "components/Icons";
 import { BsFillLightningFill } from "react-icons/bs";
 import { FaDiscord, FaReact } from "react-icons/fa";
 import { IoLogoNodejs } from "react-icons/io";
-import { SiMarkdown } from "react-icons/si";
+import { SiMarkdown, SiTailwindcss, SiTypescript } from "react-icons/si";
 
-interface Project {
+export interface IProject {
   github: string;
   name: string;
   description: string;
-  stack: Tag[];
-  image: string;
+  tags: ITag[];
+  image?: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
   url?: string;
 }
 
-type Tag = keyof typeof tags;
+export type ITag = keyof typeof tags;
 
 export const tags = {
   React: FaReact,
-  //   "Next.JS": NextJSIcon,
-  //   TypeScript: TypeScriptIcon,
-  Node: IoLogoNodejs,
+  "Next.JS": NextJS,
+  "Node.JS": IoLogoNodejs,
   "Chakra-UI": BsFillLightningFill,
   MDX: SiMarkdown,
   "Discord.JS": FaDiscord,
-  Typescript: "",
-  TailwindCSS: "",
+  Typescript: SiTypescript,
+  TailwindCSS: SiTailwindcss,
 };
 
-export const projects: Project[] = [
+export const projects: IProject[] = [
   {
     name: "Pomojoel",
     description: "Pomodoro timer web-app to help focus and concentrate on work",
     github: "https://github.com/Joehoel/timer",
-    image: "/static/images/projects/pomojoel/pomojoel.png",
-    stack: ["TailwindCSS", "Typescript"],
+    image: { url: "/static/images/projects/pomojoel/pomojoel.png", width: 265, height: 311 },
+    tags: ["TailwindCSS", "Typescript"],
     url: "https://pomojoel.nl",
   },
   {
     name: "Compagnon",
     description: "A discord bot built with discord.js",
     github: "https://github.com/Joehoel/compagnon",
-    image: "https://cdn.discordapp.com/app-icons/568087167637651458/04624ea3b747ebb3ad7808791a65bb53.png?size=512",
-    stack: ["Discord.JS", "Node", "Typescript"],
+    tags: ["Discord.JS", "Node.JS", "Typescript"],
   },
 ];
