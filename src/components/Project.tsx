@@ -9,7 +9,10 @@ interface Props {
 
 export default function Project({ project }: Props) {
   return (
-    <article key={project.name} className="rounded-md w-full dark:bg-gray-900 border dark:border-gray-800 break-inside">
+    <article
+      key={project.name}
+      className="rounded-md w-full dark:bg-gray-900 border dark:border-gray-800 break-inside shadow-sm"
+    >
       {project.image && (
         <div className="aspect-w-16 aspect-h-9">
           <Image className="object-cover rounded-t-md" src={project.image.url} layout="fill" alt={project.name} />
