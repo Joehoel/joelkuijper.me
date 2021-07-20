@@ -33,8 +33,8 @@ export default function Container(props: Props) {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://joelkuijper-me.vercel.app${router.asPath}`} />
-        <link rel="canonical" href={`https://joelkuijper-me.vercel.app${router.asPath}`} />
+        <meta property="og:url" content={`https://joelkuijper.me${router.asPath}`} />
+        <link rel="canonical" href={`https://joelkuijper.me${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Joël Kuijper" />
         <meta property="og:description" content={meta.description} />
