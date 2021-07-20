@@ -8,11 +8,13 @@ import readingTime from "reading-time";
 const root = process.cwd();
 
 export async function getFiles(type: string) {
-  return readdirSync(join(root, type));
+  return readdirSync(join(root, "data", type));
 }
 
 export async function getFileBySlug(type: string, slug?: string) {
-  const source = slug ? readFileSync(join(root, type, `${slug}.mdx`)) : readFileSync(join(root, `${type}.mdx`));
+  const source = slug
+    ? readFileSync(join(root, "data", type, `${slug}.mdx`))
+    : readFileSync(join(root, "data", `${type}.mdx`));
 
   const { data, content } = matter(source);
   const mdxSource = await serialize(content, {
@@ -46,10 +48,10 @@ export async function getFileBySlug(type: string, slug?: string) {
 }
 
 export async function getAllFilesFrontMatter(type: string) {
-  const files = readdirSync(join(root, type));
+  const files = readdirSync(join(root, "data", type));
 
   return files.map((file) => {
-    const source = readFileSync(join(root, type, file), "utf8");
+    const source = readFileSync(join(root, "data", type, file), "utf8");
     const { data } = matter(source);
 
     return {

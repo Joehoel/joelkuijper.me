@@ -1,6 +1,6 @@
 import Container from "components/Container";
-import { parseISO, format } from "date-fns";
-import { IReadTimeResults } from "types";
+import { format, parseISO } from "date-fns";
+import { Frontmatter } from "types";
 
 function getBaseURL() {
   const url = process.env.NEXT_PUBLIC_VERCEL_URL;
@@ -11,18 +11,8 @@ function getBaseURL() {
   return "https://" + url;
 }
 
-interface FrontMatter {
-  title?: string;
-  description?: string;
-  image?: string;
-  publishedAt?: string;
-  wordCount?: number;
-  readingTime?: IReadTimeResults;
-  slug?: string | null;
-}
-
 interface Props {
-  frontmatter: FrontMatter;
+  frontmatter: Frontmatter;
   children: React.ReactNode;
 }
 

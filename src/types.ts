@@ -1,9 +1,11 @@
 export interface Frontmatter {
-  title: string;
-  description: string;
-  publishedAt: string;
+  title?: string;
+  description?: string;
+  publishedAt?: string;
   image?: string;
   tags?: string[];
+  slug?: string;
+  readingTime?: IReadTimeResults;
 }
 
 export interface IReadTimeResults {
