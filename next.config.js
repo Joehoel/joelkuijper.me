@@ -1,6 +1,3 @@
-/**
- * @type {import('next').NextConfig}
- */
 module.exports = {
   eslint: {
     // Warning: Dangerously allow production builds to successfully complete even if
