@@ -3,33 +3,33 @@ import Link, { LinkProps } from "next/link";
 import Image from "next/image";
 
 interface Props extends LinkProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 const CustomLink = (props: Props) => {
-  const href = props.href.toString();
-  const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
+    const href = props.href.toString();
+    const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
-  if (isInternalLink) {
+    if (isInternalLink) {
+        return (
+            <Link href={href}>
+                {/* @ts-ignore */}
+                <a {...props}>{props.children}</a>
+            </Link>
+        );
+    }
+
     return (
-      <Link href={href}>
-        {/* @ts-ignore */}
-        <a {...props}>{props.children}</a>
-      </Link>
+        <>
+            {/* @ts-ignore */}
+            <a target="_blank" rel="noopener noreferrer" {...props} />
+        </>
     );
-  }
-
-  return (
-    <>
-      {/* @ts-ignore */}
-      <a target="_blank" rel="noopener noreferrer" {...props} />
-    </>
-  );
 };
 
 const MDXComponents = {
-  Image,
-  a: CustomLink,
+    Image,
+    a: CustomLink,
 };
 
 export default MDXComponents;

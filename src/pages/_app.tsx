@@ -5,13 +5,13 @@ import "../styles/tailwind.css";
 import MDXComponents from "components/MDXComponents";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <ThemeProvider attribute="class">
-      <MDXProvider components={MDXComponents}>
-        <Component {...pageProps} />
-      </MDXProvider>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider attribute="class">
+            <MDXProvider components={MDXComponents}>
+                <Component {...pageProps} />
+            </MDXProvider>
+        </ThemeProvider>
+    );
 };
 
 export default App;
