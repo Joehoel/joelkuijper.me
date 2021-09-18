@@ -1,38 +1,80 @@
-# create-svelte
+<h1 align="center">Personal Website</h1>
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Joehoel/joelkuijper-me?color=56BEB8">
 
-## Creating a project
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Joehoel/joelkuijper-me?color=56BEB8">
 
-If you're seeing this, you've probably already done this step. Congrats!
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Joehoel/joelkuijper-me?color=56BEB8">
+
+  <img alt="License" src="https://img.shields.io/github/license/Joehoel/joelkuijper-me?color=56BEB8">
+
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Joehoel/joelkuijper-me?color=56BEB8" /> -->
+
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Joehoel/joelkuijper-me?color=56BEB8" /> -->
+
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/Joehoel/joelkuijper-me?color=56BEB8" /> -->
+</p>
+
+<!-- Status -->
+
+<!-- <h4 align="center">
+	🚧  Joelkuijper Me 🚀 Under construction...  🚧
+</h4>
+
+<hr> -->
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Joehoel" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About
+
+This is my personal website to show off my skills and a place where I can write blog posts about stuff I'm making and learning.
+
+## :rocket: Technologies
+
+The following tools were used in this project:
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## :white_check_mark: Requirements
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting
 
 ```bash
-# create a new project in the current directory
-npm init svelte@next
+# Clone this project
+$ git clone https://github.com/Joehoel/joelkuijper-me
 
-# create a new project in my-app
-npm init svelte@next my-app
+# Access
+$ cd joelkuijper-me
+
+# Install dependencies
+$ yarn
+
+# Run the project
+$ yarn dev
+
+# The server will initialize in the <http://localhost:3000>
 ```
 
-> Note: the `@next` is temporary
+## :memo: License
 
-## Developing
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Made with :heart: by <a href="https://github.com/Joehoel" target="_blank">Joël Kuijper</a>
 
-```bash
-npm run dev
+&#xa0;
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+<a href="#top">Back to top</a>
