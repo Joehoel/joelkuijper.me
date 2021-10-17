@@ -15,3 +15,9 @@
 		</a>
 	{/each}
 </nav>
+
+<style lang="scss">
+	nav {
+		display: flex;
+	}
+</style>

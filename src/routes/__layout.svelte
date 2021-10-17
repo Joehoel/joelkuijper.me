@@ -1,6 +1,6 @@
 <script>
 	import "../styles/global.scss";
-	import Navigation from "$lib/components/Navigation.svelte";
+	import Header from "$lib/components/Header.svelte";
 </script>
 
 <svelte:head>
@@ -8,6 +8,6 @@
 	<meta content="Fullstack Web Developer" name="description" />
 </svelte:head>
 
-<Navigation />
+<Header />
 
 <slot />

@@ -7,7 +7,7 @@ const config = {
 	preprocess: [
 		preprocess({
 			scss: {
-				prependData: '@import "src/styles/variables.scss"; @import "src/styles/normalize.scss";',
+				prependData: '@import "src/styles/variables.scss";',
 			},
 		}),
 	],
@@ -20,8 +20,7 @@ const config = {
 			css: {
 				preprocessorOptions: {
 					scss: {
-						additionalData:
-							'@import "src/styles/variables.scss"; @import "src/styles/normalize.scss";',
+						additionalData: '@import "src/styles/variables.scss";',
 					},
 				},
 			},
