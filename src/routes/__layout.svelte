@@ -1,12 +1,6 @@
 <script>
-	import '../app.scss';
-	import { page } from '$app/stores';
-
-	const routes = [
-		{ href: '/', name: 'Home' },
-		{ href: '/projects', name: 'Projects' },
-		{ href: '/about', name: 'About' }
-	];
+	import "../styles/global.scss";
+	import Navigation from "$lib/components/Navigation.svelte";
 </script>
 
 <svelte:head>
@@ -14,18 +8,6 @@
 	<meta content="Fullstack Web Developer" name="description" />
 </svelte:head>
 
-<nav>
-	{#each routes as route}
-		<a href={route.href} class:active={route.href === $page.path}>
-			{route.name}
-		</a>
-	{/each}
-</nav>
+<Navigation />
 
 <slot />
-
-<style lang="scss">
-	.active {
-		color: gray;
-	}
-</style>
