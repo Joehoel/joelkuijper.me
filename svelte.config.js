@@ -7,22 +7,17 @@ const config = {
 	preprocess: [
 		preprocess({
 			scss: {
-				prependData: '@import "src/styles/variables.scss";',
+				prependData: `@import "src/lib/styles/variables.scss";`,
 			},
 		}),
 	],
-
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: "#svelte",
 
 		vite: {
-			css: {
-				preprocessorOptions: {
-					scss: {
-						additionalData: '@import "src/styles/variables.scss";',
-					},
-				},
+			define: {
+				__VERSION__: JSON.stringify(process.env.npm_package_version),
 			},
 		},
 	},

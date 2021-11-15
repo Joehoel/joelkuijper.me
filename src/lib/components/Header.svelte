@@ -9,8 +9,4 @@
 </header>
 
 <style lang="scss">
-	header {
-		display: flex;
-		margin: 1rem;
-	}
 </style>

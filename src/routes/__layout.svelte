@@ -1,5 +1,5 @@
 <script>
-	import "../styles/global.scss";
+	import "$lib/styles/index.scss";
 	import Header from "$lib/components/Header.svelte";
 </script>
 
@@ -11,3 +11,6 @@
 <Header />
 
 <slot />
+
+<style lang="scss">
+</style>
