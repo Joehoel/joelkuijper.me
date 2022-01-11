@@ -1,3 +1,8 @@
+<script lang="ts">
+    import SocialLink from "$lib/components/SocialLink.svelte";
+    import { GithubFill, LinkedinBoxFill, TwitterFill } from "svelte-remixicon";
+</script>
+
 <div class="flex justify-between mt-20">
     <h1 class="text-6xl font-mono leading-snug">
         Hey! <br />I'm Joël, <br />Fullstack Developer
@@ -7,6 +12,23 @@
 </div>
 
 <p class="w-1/2 mt-4">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi laudantium omnis dicta autem sint atque nulla quisquam aperiam aspernatur, nihil alias. Voluptate quo omnis dicta
-    consequuntur, aspernatur hic id beatae officia rem velit ex est corrupti itaque saepe eos. Earum ea harum distinctio nesciunt facere dicta numquam, reprehenderit modi quisquam?
+    Hallo ik ben Joël ik ben 2 meter lang en dat is één van mijn twee talenten. Wat is de andere? Oh iets met goed zijn
+    in programmeren en designen ofzo idk niet belangrijk
 </p>
+
+<div class="flex space-x-4 mt-10">
+    <SocialLink link="https://github.com/joehoel">
+        <GithubFill slot="icon" />
+        Github
+    </SocialLink>
+
+    <SocialLink link="https://www.linkedin.com/in/jo%C3%ABl-kuijper-777299206/">
+        <LinkedinBoxFill slot="icon" />
+        LinkedIn
+    </SocialLink>
+
+    <SocialLink link="https://twitter.com/joel_kuijper">
+        <TwitterFill slot="icon" />
+        Twitter
+    </SocialLink>
+</div>
