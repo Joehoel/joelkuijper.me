@@ -9,6 +9,6 @@
 </svelte:head>
 
 <Header />
-<main class="max-w-7xl mx-auto">
+<main class="max-w-7xl mx-auto px-8">
 	<slot />
 </main>
