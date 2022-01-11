@@ -1,12 +1,14 @@
 <script>
 	import Navigation from "$lib/components/Navigation.svelte";
+	import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 </script>
 
-<header>
-	<p class="name">Joël Kuijper</p>
+<header class="max-w-7xl mx-auto flex justify-between items-center border-b-2">
+	<h1 class="text-2xl font-mono font-bold tracking-tighter">JK</h1>
 
-	<Navigation />
+	<div class="flex flex-row items-center">
+		<Navigation />
+
+		<ThemeToggle />
+	</div>
 </header>
-
-<style lang="scss">
-</style>

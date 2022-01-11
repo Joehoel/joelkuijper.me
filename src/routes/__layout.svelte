@@ -1,5 +1,5 @@
 <script>
-	import "$lib/styles/index.scss";
+	import "../app.css";
 	import Header from "$lib/components/Header.svelte";
 </script>
 
@@ -9,8 +9,6 @@
 </svelte:head>
 
 <Header />
-
-<slot />
-
-<style lang="scss">
-</style>
+<main class="max-w-7xl mx-auto">
+	<slot />
+</main>

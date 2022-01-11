@@ -8,9 +8,13 @@
 	];
 </script>
 
-<nav>
+<nav class="flex text-lg font-semibold">
 	{#each routes as route}
-		<a href={route.href} class:active={route.href === $page.path}>
+		<a
+			href={route.href}
+			class:active={route.href === $page.path}
+			class="py-4 px-2 mr-10 hover:text-brand active:text-brand focus:text-brand"
+		>
 			{route.name}
 		</a>
 	{/each}
