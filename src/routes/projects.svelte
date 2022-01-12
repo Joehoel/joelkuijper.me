@@ -1,13 +1,15 @@
 <script context="module" lang="ts">
-    import type { IRepository, IProject } from "$lib/types";
+    import type { IRepository } from "$lib/types";
 
     /** @type {import('@sveltejs/kit').Load} */
-    export async function load({ params, fetch, session, stuff }) {
+    export async function load({ fetch }) {
         try {
             const res = await fetch("https://api.github.com/users/joehoel/starred");
             const data: IRepository[] = await res.json();
 
-            const projects: IRepository[] = await Promise.all(data?.filter((project) => project.owner.login === "Joehoel"));
+            const projects: IRepository[] = await Promise.all(
+                data?.filter((project) => project.owner.login === "Joehoel"),
+            );
 
             console.log(projects);
 
