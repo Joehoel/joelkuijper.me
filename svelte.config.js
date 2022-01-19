@@ -16,6 +16,7 @@ const config = {
     kit: {
         adapter: adapter({
             split: false,
+            out: "build",
         }),
         target: "#svelte",
 
