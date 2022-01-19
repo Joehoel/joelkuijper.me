@@ -11,8 +11,6 @@
                 data?.filter((project) => project.owner.login === "Joehoel"),
             );
 
-            console.log(projects);
-
             return {
                 props: {
                     projects,
@@ -41,7 +39,7 @@
 
 <p class="mb-6">This is a list of projects I have done in the past or am still working on.</p>
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {#if projects.length > 0}
         {#each projects as { name, description, html_url }}
             <Project {name} {description} url={html_url} />

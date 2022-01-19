@@ -1,6 +1,5 @@
 <script lang="ts">
-    import SocialLink from "$lib/components/SocialLink.svelte";
-    import { GithubFill, LinkedinBoxFill, TwitterFill } from "svelte-remixicon";
+    import SocialLinkList from "$lib/components/SocialLinkList.svelte";
 </script>
 
 <div class="flex flex-row justify-between mt-20">
@@ -8,7 +7,7 @@
         Hey! <br />I'm Joël, <br />Fullstack Developer
     </h1>
 
-    <img src="me.jpg" alt="Me" class="rounded w-1/3  object-cover md:w-1/5 shadow-md" />
+    <img src="me.jpg" alt="Me" class="rounded w-1/3 hidden md:block md:w-1/5 shadow-md" />
 </div>
 
 <p class="md:w-1/2 mt-4">
@@ -17,18 +16,5 @@
 </p>
 
 <div class="flex space-x-4 mt-10">
-    <SocialLink link="https://github.com/joehoel">
-        <GithubFill slot="icon" />
-        Github
-    </SocialLink>
-
-    <SocialLink link="https://www.linkedin.com/in/jo%C3%ABl-kuijper-777299206/">
-        <LinkedinBoxFill slot="icon" />
-        LinkedIn
-    </SocialLink>
-
-    <SocialLink link="https://twitter.com/joel_kuijper">
-        <TwitterFill slot="icon" />
-        Twitter
-    </SocialLink>
+    <SocialLinkList />
 </div>

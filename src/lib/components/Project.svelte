@@ -1,7 +1,6 @@
 <script lang="ts">
     import { capitalize } from "$lib/utils/capitalize";
     import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
-    // import Tag from "./Tag.svelte";
 
     export let name: string;
     export let description: string;
@@ -20,10 +19,4 @@
     </header>
 
     <p>{description}</p>
-
-    <!-- {#each tags as tag}
-        <Tag color="blue">
-            {tag}</Tag
-        >
-    {/each} -->
 </article>
