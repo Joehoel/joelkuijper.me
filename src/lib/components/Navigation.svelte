@@ -1,6 +1,5 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { media } from "$lib/stores/media";
     import { createEventDispatcher, onMount } from "svelte";
     import { slide } from "svelte/transition";
 
@@ -25,7 +24,7 @@
     {#each routes as route}
         <a
             href={route.href}
-            class:active={route.href === $page.path}
+            class:active={route.href === $page.url.pathname}
             on:click={() => dispatch("close")}
             class="px-2 py-1 mr-10 hover:text-brand active:text-brand focus:text-brand"
         >
