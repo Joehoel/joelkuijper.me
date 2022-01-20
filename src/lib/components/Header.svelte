@@ -3,7 +3,7 @@
     import ThemeToggle from "$lib/components/ThemeToggle.svelte";
     import { Menu2Line } from "svelte-remixicon";
 
-    let open: boolean = false;
+    let open = false;
 </script>
 
 <header class="max-w-7xl w-full mx-auto px-8 flex justify-between items-center border-b-2 py-2 relative">
