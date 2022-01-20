@@ -1,7 +1,6 @@
 // import adapter from "@sveltejs/adapter-auto";
 import preprocess from "svelte-preprocess";
 import netlify from "@sveltejs/adapter-netlify";
-const pkg = require("./package.json");
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -22,9 +21,9 @@ const config = {
             define: {
                 __VERSION__: JSON.stringify(process.env.npm_package_version),
             },
-            ssr: {
-                noExternal: Object.keys(pkg.dependencies || {}),
-            },
+            // ssr: {
+            //     noExternal: Object.keys(pkg.dependencies || {}),
+            // },
         },
     },
 };
