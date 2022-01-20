@@ -1,6 +1,7 @@
 // import adapter from "@sveltejs/adapter-auto";
 import preprocess from "svelte-preprocess";
-import adapter from "@sveltejs/adapter-netlify";
+import netlify from "@sveltejs/adapter-netlify";
+import pkg from "./package.json";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,12 +15,15 @@ const config = {
         }),
     ],
     kit: {
-        adapter: adapter(),
+        adapter: netlify(),
         target: "#svelte",
 
         vite: {
             define: {
                 __VERSION__: JSON.stringify(process.env.npm_package_version),
+            },
+            ssr: {
+                noExternal: Object.keys(pkg.dependencies || {}),
             },
         },
     },

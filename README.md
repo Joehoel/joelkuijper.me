@@ -1,13 +1,15 @@
 <h1 align="center">Personal Website</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Joehoel/joelkuijper-me?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Joehoel/joelkuijper.me?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Joehoel/joelkuijper-me?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Joehoel/joelkuijper.me?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Joehoel/joelkuijper-me?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Joehoel/joelkuijper.me?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/Joehoel/joelkuijper-me?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/Joehoel/joelkuijper.me?color=56BEB8">
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2964ff6-aaf1-4668-835c-23382eac047c/deploy-status)](https://app.netlify.com/sites/joelkuijper/deploys)
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Joehoel/joelkuijper-me?color=56BEB8" /> -->
 
@@ -43,9 +45,9 @@ This is my personal website to show off my skills and a place where I can write 
 
 The following tools were used in this project:
 
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
+-   [Node.js](https://nodejs.org/en/)
+-   [React](https://pt-br.reactjs.org/)
+-   [TypeScript](https://www.typescriptlang.org/)
 
 ## :white_check_mark: Requirements
 
