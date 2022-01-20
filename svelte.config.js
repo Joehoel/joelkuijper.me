@@ -21,7 +21,7 @@ const config = {
 
         vite: {
             define: {
-                __VERSION__: parseInt(pkg.version || "1.0.0"),
+                __VERSION__: pkg.version || "1.0.0",
             },
             ssr: {
                 noExternal: Object.keys(pkg.dependencies || {}),
