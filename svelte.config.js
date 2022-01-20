@@ -1,6 +1,7 @@
 // import adapter from "@sveltejs/adapter-auto";
 import preprocess from "svelte-preprocess";
 import netlify from "@sveltejs/adapter-netlify";
+import fs from "fs";
 
 const pkg = JSON.parse(fs.readFileSync(new URL("package.json", import.meta.url), "utf8"));
 
