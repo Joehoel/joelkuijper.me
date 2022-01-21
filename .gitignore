@@ -4,3 +4,5 @@ node_modules
 /.svelte-kit
 /package
 .netlify
+/.svelte
+/.vercel_build_output

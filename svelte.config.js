@@ -1,6 +1,6 @@
 // import adapter from "@sveltejs/adapter-auto";
 import preprocess from "svelte-preprocess";
-import netlify from "@sveltejs/adapter-netlify";
+import vercel from "@sveltejs/adapter-vercel";
 import fs from "fs";
 
 const pkg = JSON.parse(fs.readFileSync(new URL("package.json", import.meta.url), "utf8"));
@@ -17,7 +17,7 @@ const config = {
         }),
     ],
     kit: {
-        adapter: netlify(),
+        adapter: vercel(),
         target: "#svelte",
 
         vite: {
