@@ -19,6 +19,7 @@
         "@typescript-eslint/parser": "^4.31.1",
         "autoprefixer": "^10.4.2",
         "cssnano": "^5.0.15",
+        "daisyui": "^1.24.3",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-svelte3": "^3.2.1",
@@ -37,6 +38,11 @@
     },
     "type": "module",
     "dependencies": {
-        "svelte-icons": "^2.1.0"
+        "@leveluptuts/g-query": "^0.2.2",
+        "graphql-request": "^3.7.0",
+        "graphql-tag": "^2.12.6",
+        "marked": "^4.0.10",
+        "svelte-icons": "^2.1.0",
+        "theme-change": "^2.0.2"
     }
 }

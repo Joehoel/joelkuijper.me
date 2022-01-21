@@ -34,8 +34,8 @@
     export let projects: IRepository[];
 </script>
 
-<h1 class="text-5xl font-bold my-10 inline-block">Projects</h1>
-<span class="mx-4 dark:text-gray-400 text-gray-600 font-mono text-xs font-bold">({projects.length})</span>
+<h1 class="text-5xl font-bold my-10 inline-block text-base-content">Projects</h1>
+<span class="mx-4 text-base-200 font-mono text-xs font-bold">({projects.length})</span>
 
 <p class="mb-6">This is a list of projects I have done in the past or am still working on.</p>
 
@@ -45,6 +45,6 @@
             <Project {name} {description} url={html_url} />
         {/each}
     {:else}
-        <p class="dark:text-gray-400 text-gray-600">Something went wrong...</p>
+        <p class="text-base-content">Something went wrong...</p>
     {/if}
 </div>

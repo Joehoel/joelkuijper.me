@@ -10,6 +10,6 @@
 </svelte:head>
 
 <Header />
-<main class="max-w-7xl mx-auto px-8 flex-grow">
+<main class="mx-auto px-8 flex-grow container">
     <slot />
 </main>
