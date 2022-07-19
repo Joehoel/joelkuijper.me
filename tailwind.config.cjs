@@ -1,20 +1,8 @@
-const colors = require("tailwindcss/colors");
-
-const config = {
-    content: ["./src/**/*.{html,js,svelte,ts}"],
-    darkMode: "class",
-    theme: {
-        extend: {
-            colors: {
-                brand: {
-                    DEFAULT: "#ff8900",
-                },
-                gray: colors.neutral,
-            },
-        },
-    },
-
-    plugins: [require("daisyui")],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		extend: {}
+	},
+	plugins: []
 };
-
-module.exports = config;
